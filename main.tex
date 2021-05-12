@@ -1,0 +1,136 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{mlt-thesis-2015}
+
+% With Xetex/Luatex this shouldn't be used
+%\usepackage[utf8]{inputenc}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\title{Title of the thesis}
+\subtitle{Subtitle}
+\author{Author}
+
+\begin{document}
+
+%% ============================================================================
+%% Title page
+%% ============================================================================
+\begin{titlepage}
+
+\maketitle
+
+\vfill
+
+\begingroup
+\renewcommand*{\arraystretch}{1.2}
+\begin{tabular}{l@{\hskip 20mm}l}
+\hline
+Master's Thesis: & 30 credits / 15 credits (select what applies in your case)\\
+Programme: & Master’s Programme in Language Technology\\
+Level: & Advanced level \\
+Semester and year: & Spring, 2015\\
+Supervisor & (name of the supervisor)\\
+Examiner & (name of the examiner)\\
+Report number & (number will be provided by the administrators) \\
+Keywords & (enter a few keywords) 
+\end{tabular}
+\endgroup
+
+\thispagestyle{empty}
+\end{titlepage}
+
+%% ============================================================================
+%% Abstract
+%% ============================================================================
+\newpage
+\singlespacing
+\section*{Abstract}
+
+Brief summary of research question, background, method, results\ldots
+
+\thispagestyle{empty}
+
+%% ============================================================================
+%% Preface
+%% ============================================================================
+\newpage
+\section*{Preface}
+
+Acknowledgements, etc.
+
+\thispagestyle{empty}
+
+%% ============================================================================
+%% Contents
+%% ============================================================================
+\newpage
+
+\begin{spacing}{0.0}
+\tableofcontents
+\end{spacing}
+
+\thispagestyle{empty}
+
+%% ============================================================================
+%% Introduction
+%% ============================================================================
+\newpage
+\setcounter{page}{1}
+
+\input{sections/introduction.tex}
+%% TODO:
+% write motivation
+% proofread subsection 3
+% etc
+
+%% ALREADY DONE:
+% write xyz
+% fixed bibtex
+% etc
+
+%% You can add and edit these comments as you see fit for the other sections, or use some other tool
+
+\newpage
+
+\input{sections/background.tex}
+
+\newpage
+
+\input{sections/setup.tex}
+
+\newpage
+
+\input{sections/results.tex}
+
+\newpage
+
+\input{sections/ethics.tex}
+
+\newpage
+
+\input{sections/limitations.tex}
+
+\newpage
+
+\input{sections/future.tex}
+
+\newpage
+
+\input{sections/conclusion.tex}
+
+
+
+
+
+\addcontentsline{toc}{section}{References}
+\bibliography{anthology,katesbib}
+
+\newpage
+\section{Appendices}
+
+\end{document}
+
+
