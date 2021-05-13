@@ -1,0 +1,46 @@
+\section{Experimental Setup}
+
+\subsection{3.1 - Dataset}
+
+The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \citep{schlechtweg-etal-2020-semeval} provides manually-annotated datasets for four languages (English, German, Swedish, and Latin). It is composed of a diachronic corpus pair and a set of target words for each language. Having a gold standard that is based on roughly 100,000 human judgments, researchers now have a more concrete foundation for comparing models. There are two subtasks that differ by the assessment of LSC: binary classification and ranking. In order to identify and evaluate the subtle effects of hyperparameter changes, this thesis follows Subtask 2—based on a ranking of the target words depending on the degree of LSC between the first and second corpus. In contrast to Subtask 1’s binary classification, the method of ranking in Subtask 2 “captures fine-grained changes in the two sense frequency distributions” \citep{schlechtweg-etal-2020-semeval}. The two corpora for each language (C1 and C2) were divided based on data size and the availability of target words. Pre-processing of all corpora involved lemmatization, removal of all punctuation, and randomly shuffling sentences within each time-specific corpora.
+
+The Clean Corpus of Historical American English (CCOHA) consists of different types of text—fiction, non-fiction, magazines, and newspapers—from the 1810s to the 2000s \citep{davies2012expanding, alatrash-etal-2020-ccoha}. The first time-bin corpus used for German is Deutsches Textarchiv (DTA) which is composed of different genres of text from the 16th-20th centuries \citep{dta2017}. For the second time-bin, a combination of the Berliner Zeitung (BZ) and Neues Deutschland (ND) corpora is used \citep{berliner2018,neues2018}. Both German corpora are comprised of newspaper articles from the years of 1945-1993. The corpus used for Latin, LatinISE \citep{mcgillivray-kilgarriff}, is a compilation of texts originating from 2nd century B.C. to 21st century AD from three online digital libraries. The corpora used for Swedish is the Kubhist corpus \citep{Kubhist}, which similar to the German corpus used, is a newspaper corpus with articles from the 18th to the 20th century. \hfill \break
+\begin{table}[h]
+\small
+\centering
+\begin{tabular}{l|cc|cc|}
+\cline{2-5}
+\textbf{}      & \multicolumn{2}{c|}{\textbf{C_1}}                    & \multicolumn{2}{c|}{\textbf{C_2}}                    \\
+                                       & \textit{\textbf{corpus}} & \textit{\textbf{period}} & \textit{\textbf{corpus}} & \textit{\textbf{period}} \\ \hline
+\multicolumn{1}{|l|}{\textbf{English}} & CCOHA                    & 1810-1860                & CCOHA                    & 1960-2010                \\ \hline
+\multicolumn{1}{|l|}{\textbf{German}}  & DTA                      & 1800-1899                & BZ + ND                  & 1946-1990                \\ \hline
+\multicolumn{1}{|l|}{\textbf{Latin}}   & LatinISE                 & -200-0                   & LatinISE                 & 0-2000                   \\ \hline
+\multicolumn{1}{|l|}{\textbf{Swedish}} & Kubhist                  & 1790-1830                & Kubhist                  & 1895-1903                \\ \hline
+\end{tabular}
+\caption{Time periods of each sub-corpora for each language.}
+\label{tab:subcorpora-time}
+\end{table}
+\hfill \break
+Annotators—all native speakers or former university students of the respective language they were assigned—were instructed to follow the DURel framework \citep{DURel2018}. Deriving from \citet{blank1997prinzipien}’s continuum of semantic proximity for synchronic polysemy annotation, its semantic-relatedness scale for a target word w within two specific time periods from C1 and C2 resulted in high inter-annotator agreement. 
+	
+Each language is accompanied by a target word list that consists of words that have undergone semantic change or stable words—words that have not changed in meaning. For words that have changed in meaning, it is not distinguished whether words have lost or gained a sense. Stable words were chosen to act as counterparts of words that have changed in meaning through the consideration of the same POS tag and a comparable/similar frequency development between the two time periods. This consideration minimizes possible model biases that result from these factors. \citep{dubossarsky-etal-2017-outta} Since many of the English target words underwent POS-specific semantic changes, POS tags have been concatenated in the target word list (“word\_pos”). Although the addition of POS tags in the SemEval task was for the purpose of English words having a tendency to change POS tags when changing senses, it was also a great opportunity to examine model performances based on POS tags for this project. The addition of POS tags for the target word lists of the remaining three languages will be discussed further below.
+ 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\small
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Language} & \textbf{NN} & \textbf{VB} & \textbf{ADJ} \\ \hline
+\textit{English}                          & 33          & 4           & 0            \\ \hline
+\textit{German}                           & 32          & 14          & 2            \\ \hline
+\textit{Latin}                            & 28          & 5           & 7            \\ \hline
+\textit{Swedish}                          & 22          & 6           & 3            \\ \hline
+\end{tabular}
+\caption{Number of nouns (NN), verbs (VB), and adjectives (ADJ) in each language's target word list.}
+\label{tab:postag-breakdown}
+\end{table}
+
+Numerous types of semantic representations were used by teams during the SemEval task: token embeddings vs. type embeddings and topic modelling vs. vector space models. In both Subtask 1 and 2, the highest-performing systems used static-type embedding models. Token embeddings include more contextual information each time the target word appears in the corpus while type embeddings are average embeddings (LACKING). However, it was pointed out that raw corpora, rather than lemmatized corpora, would bode better for token embeddings. (ANNOTATION?) Following the best-performing models of the tasks, with a larger focus on Subtask 2, a hyperparameter search of models with type embeddings would help determine if the top scores of the task could be surpassed solely on changes in hyperparameters. (ENDSOUNDS WEIRD, EDIT)
