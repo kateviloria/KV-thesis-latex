@@ -8,6 +8,7 @@
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{setspace}
+\usepackage{subfiles} 
 
 \title{Title of the thesis}
 \subtitle{Subtitle}
@@ -80,7 +81,8 @@ Acknowledgements, etc.
 \newpage
 \setcounter{page}{1}
 
-\input{sections/1-introduction.tex}
+\include{sections/1-introduction}
+
 %% TODO:
 % write motivation
 % proofread subsection 3
@@ -95,31 +97,31 @@ Acknowledgements, etc.
 
 \newpage
 
-\input{sections/2-background}
+\include{sections/2-background}
 
 \newpage
 
-\input{sections/3-exp-setup.tex}
+\include{sections/3-exp-setup}
 
 \newpage
 
-\input{sections/4-results.tex}
+\include{sections/4-results}
 
 \newpage
 
-\input{sections/5-ethics.tex}
+\include{sections/5-ethics}
 
 \newpage
 
-\input{sections/6-limitations.tex}
+\include{sections/6-limitations}
 
 \newpage
 
-\input{sections/7-future.tex}
+\include{sections/7-future}
 
 \newpage
 
-\input{sections/8-conclusion.tex}
+\include{sections/8-conclusion}
 
 
 
