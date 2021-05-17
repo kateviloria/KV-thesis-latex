@@ -10,7 +10,7 @@ The Clean Corpus of Historical American English (CCOHA) consists of different ty
 \centering
 \begin{tabular}{l|cc|cc|}
 \cline{2-5}
-\textbf{}      & \multicolumn{2}{c|}{\textbf{C_1}}                    & \multicolumn{2}{c|}{\textbf{C_2}}                    \\
+\textbf{}      & \multicolumn{2}{c|}{\textbf{$C_1$}}                    & \multicolumn{2}{c|}{\textbf{$C_2$}}                    \\
                                        & \textit{\textbf{corpus}} & \textit{\textbf{period}} & \textit{\textbf{corpus}} & \textit{\textbf{period}} \\ \hline
 \multicolumn{1}{|l|}{\textbf{English}} & CCOHA                    & 1810-1860                & CCOHA                    & 1960-2010                \\ \hline
 \multicolumn{1}{|l|}{\textbf{German}}  & DTA                      & 1800-1899                & BZ + ND                  & 1946-1990                \\ \hline
@@ -43,4 +43,8 @@ Each language is accompanied by a target word list that consists of words that h
 \label{tab:postag-breakdown}
 \end{table}
 
-Numerous types of semantic representations were used by teams during the SemEval task: token embeddings vs. type embeddings and topic modelling vs. vector space models. In both Subtask 1 and 2, the highest-performing systems used static-type embedding models. Token embeddings include more contextual information each time the target word appears in the corpus while type embeddings are average embeddings (LACKING). However, it was pointed out that raw corpora, rather than lemmatized corpora, would bode better for token embeddings. (ANNOTATION?) Following the best-performing models of the tasks, with a larger focus on Subtask 2, a hyperparameter search of models with type embeddings would help determine if the top scores of the task could be surpassed solely on changes in hyperparameters. (ENDSOUNDS WEIRD, EDIT)
+Numerous types of semantic representations were used by teams during the SemEval task: token embeddings vs. type embeddings and topic modelling vs. vector space models. In both Subtask 1 and 2, the highest-performing systems used static-type embedding models. Token embeddings include more contextual information each time the target word appears in the corpus while type embeddings are average embeddings (LACKING). However, it was pointed out that raw corpora, rather than lemmatized corpora, would bode better for token embeddings. (ANNOTATION?) Following the best-performing models of the tasks, with a larger focus on Subtask 2, a hyperparameter search of models with type embeddings would help determine if the top scores of the task could be surpassed solely on changes in hyperparameters. (ENDSOUNDS WEIRD, EDIT) 
+
+(FROM MOTIVATION)
+Another challenge that the field is currently facing is having a more robust system of evaluation. Currently, semantic annotation stands as the most reliable (sole (TECHNICALLY NOT)) way of evaluating and validating semantic change in historical corpora \citep{hengchen2021challenges}. Although effective (for now), the annotating process to obtain ground-truth data results in large amounts of money and time expended. It also only produces a limited target word list—allowing the possibility of evaluation inconsistencies to be introduced. A model might perform well with one target list and horribly with another. (CONJECTURE? LOL) Using a simulated LSC for evaluation is in its early stages and is encouraged to be used for evaluation in tandem with ground-truth testing.
+
