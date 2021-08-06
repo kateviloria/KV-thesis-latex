@@ -16,6 +16,9 @@
 \usepackage{booktabs}
 %\graphicspath{ {figures/} }
 
+\usepackage{verbatim}
+
+
 \title{Title of the thesis}
 \subtitle{Subtitle}
 \author{Kate Viloria}
@@ -136,9 +139,11 @@ Acknowledgements, etc.
 \addcontentsline{toc}{section}{References}
 \bibliography{anthology,katesbib}
 
-\newpage
-\section{Appendices}
-\include{sections/7-appendix}
+
+\appendix
+\input{sections/9.1-appendix-resources}
+\input{sections/9.2-appendix-overallresults}
+\input{sections/9.3-appendix-postagresults}
 
 \end{document}
 
