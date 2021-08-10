@@ -211,96 +211,13 @@ vegetation   & nn  & 0.000000         \\
 \end{table}
 
 % ----------------
-The tables below show the top-performing models based on the smaller target word lists created by sorting the target words by POS-tag. For each table, the first row is the overall top-performing model (entire target word list) which is included for easier comparisons. 
-
-\begin{table}[h]
-\centering
-\begin{tabular}{ccccccccc} 
-\toprule
-\textbf{ Algo } & \textbf{ Align } & \textbf{ Vocab Size } & \textbf{ Epochs } & \textbf{ Dims } & \textbf{ Freq Threshold } & \textbf{ Lg } & \textbf{ POS } & \textbf{ Rho }  \\
-FT              & OP               & ALL (16429)           & 5                 & 300             & 10                        & ENG           & -              & .469            \\
--               & -                & -                     & -                 & -               & -                         & ENG           & ADJ            & -               \\
-FT              & INC              & -                     & 10                & 300             & 10                        & ENG           & NN             & .463            \\
-FT              & INC              & -                     & 50                & 300             & 5                         & ENG           & VB             & .800            \\
-FT              & INC              & -                     & 50                & 300             & 50                        & ENG           & VB             & .800            \\
-W2V             & OP               & -                     & 50                & 300             & 100                       & ENG           & VB             & .800            \\
-W2V             & OP               & 1000                  & 20                & 300             & 10                        & ENG           & VB             & .800            \\
-W2V             & OP               & 1000                  & 50                & 300             & 100                       & ENG           & VB             & .800            \\
-W2V             & OP               & 10000                 & 20                & 300             & 10                        & ENG           & VB             & .800            \\
-\bottomrule
-\end{tabular}
-\caption{English Top-performing Models for Each POS-tag}
-\label{tab:eng-posresults}
-\end{table}
+% The tables below show the top-performing models based on the smaller target word lists created by sorting the target words by POS-tag. For each table, the first row is the overall top-performing model (entire target word list) which is included for easier comparisons. 
 
 
-** WHERE IS THE MISSING DOLLAR SIGN
-\begin{table}
-\centering
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{ccccccccc} 
-\toprule
-\textbf{ Algo } & \textbf{ Align } & \textbf{ Vocab Size } & \textbf{ Epochs } & \textbf{ Dims } & \textbf{ Freq Threshold } & \textbf{ Lg } & \textbf{ POS } & \textbf{ Rho }  \\
-W2V             & OP               & ALL (218507)          & 5                 & 25              & 5                         & DEU           & -              & .706            \\
-670             & MODELS^*          & GOT                   & SAME              & SCORE           & FOR                       & DEU           & ADJ            & 1.00            \\
-W2V             & INC              & -                     & 20                & 10              & 10                        & DEU           & NN             & .187 (p=0.30)   \\
-W2V             & INC              & -                     & 5                 & 50              & 5                         & DEU           & VB             & .609            \\
-\bottomrule
-\end{tabular}}
-\caption{German Top-performing models for each POS-tag. $^*$670 models had a Spearman's $rho$ score of 1. Please access the POS-tag results file available in \autoref{app-resources}.}
-\label{tab:deu-posresults}
-\end{table}
 
 
-\begin{table}[h]
-\centering
-\begin{tabular}{ccccccccc} 
-\toprule
-\textbf{ Algo } & \textbf{ Align } & \textbf{ Vocab Size } & \textbf{ Epochs } & \textbf{ Dims } & \textbf{ Freq Threshold } & \textbf{ Lg } & \textbf{ POS } & \textbf{ Rho }  \\
-W2V             & INC              & -                     & 5                 & 10              & 10                        & LAT           & -              & .529            \\
-W2V             & OP               & 1000                  & 50                & 25              & 100                       & LAT           & ADJ            & .821            \\
-FT              & OP               & 5000                  & 50                & 25              & 100                       & LAT           & ADJ            & .821            \\
-FT              & OP               & 10000                 & 50                & 25              & 100                       & LAT           & ADJ            & .821            \\
-FT              & OP               & ALL (1911)            & 50                & 25              & 100                       & LAT           & ADJ            & .821            \\
-FT              & INC              & -                     & 10                & 10              & 100                       & LAT           & ADJ            & .821            \\
-FT              & INC              & -                     & 20                & 25              & 100                       & LAT           & ADJ            & .821            \\
-FT              & INC              & -                     & 5                 & 10              & 50                        & LAT           & NN             & .704            \\
-W2V             & INC              & -                     & 5                 & 25              & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 5                 & 100             & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 5                 & 300             & 5                         & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 5                 & 300             & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 10                & 100             & 5                         & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 10                & 300             & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 20                & 300             & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 50                & 300             & 10                        & LAT           & VB             & 1.0             \\
-W2V             & INC              & -                     & 100               & 300             & 10                        & LAT           & VB             & 1.0             \\
-FT              & INC              & -                     & 20                & 100             & 10                        & LAT           & VB             & 1.0             \\
-FT              & INC              & -                     & 20                & 300             & 5                         & LAT           & VB             & 1.0             \\
-FT              & INC              & -                     & 50                & 100             & 5                         & LAT           & VB             & 1.0             \\
-\bottomrule
-\end{tabular}
-\caption{Latin Top-performing Models for Each POS-tag}
-\label{tab:lat-posresults}
-\end{table}
 
 
-\begin{table}[h]
-\centering
-\begin{tabular}{ccccccccc} 
-\toprule
-\textbf{ Algo } & \textbf{ Align } & \textbf{ Vocab Size } & \textbf{ Epochs } & \textbf{ Dims } & \textbf{ Freq Threshold } & \textbf{ Lg } & \textbf{ POS } & \textbf{ Rho }  \\
-FT              & OP               & 5000                  & 10                & 50              & 10                        & SVE           & -              & .651            \\
-FT              & OP               & 1000                  & 50                & 100             & 50                        & SVE           & ADJ            & 1.0             \\
-FT              & INC              & -                     & 50                & 300             & 50                        & SVE           & ADJ            & 1.0             \\
-W2V             & OP               & 1000                  & 50                & 100             & 50                        & SVE           & ADJ            & 1.0             \\
-W2V             & OP               & 5000                  & 20                & 300             & 10                        & SVE           & ADJ            & 1.0             \\
-W2V             & OP               & -                     & 10                & 100             & 10                        & SVE           & ADJ            & 1.0             \\
-W2V             & INC              & -                     & 20                & 10              & 10                        & SVE           & NN             & .464            \\
-FT              & INC              & -                     & 50                & 100             & 100                       & SVE           & VB             & .371            \\
-W2V             & INC              & -                     & 20                & 10              & 10                        & SVE           & VB             & .371            \\
-W2V             & INC              & -                     & 50                & 10              & 5                         & SVE           & VB             & .371            \\
-\bottomrule
-\end{tabular}
-\caption{Swedish Top-performing Models for Each POS-tag}
-\label{tab:sve-posresults}
-\end{table}
+
+
+
