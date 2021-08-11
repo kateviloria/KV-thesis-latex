@@ -1,1 +1,15 @@
-\section{Future work}
+\section{Future Work}
+\label{sec:futurework}
+
+There are still many questions that remain to be unanswered in the study of language change. In detecting LSC, finding methodologies that perform well in their respective domains is a continued (continuous? NO) undertaking. Ways to expand the hyperparameter search in different aspects will be discussed in this section.
+
+Models trained on diachronic corpora to detect LSC must also be validated in other ways. (VAGUE? Maybe not necessary or fix topic sentence) Although the top models in this thesis performed well based on SemEval’s diachronic corpora, it would be interesting to take the same models and examine the model’s word representations based on synchronic data. Evaluating the validity of these models not only diachronically would give more insight into what word representations have learned. This can be done by using a dataset such as \citet{supersim2021}'s SuperSim dataset—a similarity and relatedness test set for Swedish based on expert human judgments. 
+
+An evident expansion of this hyperparameter search would be to use the top-performing hyperparameter combinations on other tasks and datasets to assess their robustness and applicability (MEH WORD). Conducting similar hyperparameter searches for other languages would allow for result comparison to see if the same hyperparameter combinations perform best and persist with languages that have similar structures or are related. Of course, it is important to keep in mind that availability of datasets for LSC is limited and the work will begin with creating these datasets. However, once this work has been done, identifying patterns between languages and their top-performing models would allow for a higher-level examination of hyperparameter combinations. (WORDING) Conclusions will hopefully be possible for meta-languages depending on how languages are related—genetic or phylogenetic, or shared language features (e.g. phonology, morphology, syntax). This would allow for more broad intuitions into what model creates reliable word representations depending on the language.
+
+On a smaller scale, an examination of the models that performed the worst during this hyperparameter search would also shed some light on what combinations \emph{not} to use. Analysing the worst model combinations in the same method as done with the top-performing models in \autoref{sec:results} might shed some light on what makes models unsuccessful. 
+
+\cmtKV[inline]{Should mention lexical semantic change discovery?}
+
+\cmtKV[inline]{Reminder to myself to fix numbering cos autoreferences aren't compiling how it's supposed to and just look like a normal word}
+
