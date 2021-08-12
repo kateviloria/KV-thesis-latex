@@ -16,7 +16,10 @@
 \usepackage{booktabs}
 %\graphicspath{ {figures/} }
 
-\usepackage{verbatim}
+\hypersetup{
+colorlinks,
+allcolors={blue}
+}
 
 
 \title{Title of the thesis}
@@ -38,7 +41,7 @@
 \renewcommand*{\arraystretch}{1.2}
 \begin{tabular}{l@{\hskip 20mm}l}
 \hline
-Master's Thesis: & 30 credits / 15 credits (select what applies in your case)\\
+Master's Thesis: & 30 credits \\
 Programme: & Master’s Programme in Language Technology\\
 Level: & Advanced level \\
 Semester and year: & Spring, 2021\\
@@ -78,9 +81,12 @@ Acknowledgements, etc.
 %% ============================================================================
 \newpage
 
+\begingroup
+\hypersetup{linkcolor=black} % This ensures the ToC has black links
 \begin{spacing}{0.0}
 \tableofcontents
 \end{spacing}
+\endgroup
 
 \thispagestyle{empty}
 
