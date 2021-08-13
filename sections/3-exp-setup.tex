@@ -3,7 +3,27 @@
 
 \subsection{Dataset}
 
-The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \citep{schlechtweg-etal-2020-semeval} provides manually-annotated datasets for four languages (English, German, Swedish, and Latin). It is composed of a diachronic corpus pair and a set of target words for each language. Having a gold standard that is based on roughly 100,000 human judgments, researchers now have a more concrete foundation for comparing models. There are two subtasks that differ by the assessment of LSC: binary classification and ranking. In order to identify and evaluate the subtle effects of hyperparameter changes, this thesis follows Subtask 2—based on a ranking of the target words depending on the degree of LSC between the first and second corpus. In contrast to Subtask 1’s binary classification, the method of ranking in Subtask 2 “captures fine-grained changes in the two sense frequency distributions” \citep{schlechtweg-etal-2020-semeval}. The two corpora for each language (C$_1$ and C$_2$) were divided based on data size and the availability of target words. Pre-processing of all corpora involved lemmatization, removal of all punctuation, and randomly shuffling sentences within each time-specific corpora.
+The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \citep{schlechtweg-etal-2020-semeval} provides manually-annotated datasets for four languages (English, German, Swedish, and Latin). It is composed of a diachronic corpus pair and a set of target words for each language. Having a gold standard that is based on roughly 100,000 human judgments, researchers now have a more concrete foundation for comparing models. There are two subtasks that differ by the assessment of LSC: binary classification and ranking. In order to identify and evaluate the subtle effects of hyperparameter changes, this thesis follows Subtask 2—based on a ranking of the target words depending on the degree of LSC between the first and second corpus. In contrast to Subtask 1’s binary classification, the method of ranking in Subtask 2 “captures fine-grained changes in the two sense frequency distributions” \citep{schlechtweg-etal-2020-semeval}. The two corpora for each language (C$_1$ and C$_2$) were divided based on data size and the availability of target words. Pre-processing of all corpora involved lemmatization, removal of all punctuation, and randomly shuffling sentences within each time-specific corpora. The number of tokens after pre-processing for each corpus is seen in \autoref{tab:subcorpora-size}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|cc|cc|} 
+\cline{2-5}
+\multicolumn{1}{l|}{\textbf{}} & \multicolumn{2}{c|}{\textbf{$C_1$}}                 & \multicolumn{2}{c|}{\textbf{$C_2$}}                  \\
+\multicolumn{1}{l|}{}          & \textit{\textbf{corpus}} & \textit{\textbf{tokens}} & \textit{\textbf{corpus}} & \textit{\textbf{tokens}}  \\ 
+\hline
+\textbf{English}               & CCOHA                    & 6.5M                     & CCOHA                    & 6.7M                      \\ 
+\hline
+\textbf{German}                & DTA                      & 70.2M                    & BZ + ND                  & 72.3M                     \\ 
+\hline
+\textbf{Latin}                 & LatinISE                 & 1.7M                     & LatinISE                 & 9.4M                      \\ 
+\hline
+\textbf{Swedish}               & Kubhist                  & 71.0M                    & Kubhist                  & 110.0M                    \\
+\hline
+\end{tabular}
+\caption{Corpus Sizes for Each Diachronic Language Pair}
+\label{tab:subcorpora-size}
+\end{table}
 
 The Clean Corpus of Historical American English (CCOHA) consists of different types of texts from the 1810s to the 2000s—fiction, non-fiction, magazines, and newspapers \citep{davies2012expanding, alatrash-etal-2020-ccoha}. The first time period corpus used for German is Deutsches Textarchiv (DTA) which is composed of different genres of text from the 16\textsuperscript{th}-20\textsuperscript{th} centuries \citep{dta2017}. For the second time period corpus, a combination of the Berliner Zeitung (BZ) and Neues Deutschland (ND) corpora is used \citep{berliner2018,neues2018}. Both German corpora are comprised of newspaper articles from the years of 1945-1993. The corpora used for Latin, LatinISE \citep{mcgillivray-kilgarriff}, is a compilation of texts originating from 2\textsuperscript{nd} century B.C. to 21\textsuperscript{st} century A.D. from three online digital libraries. The corpora used for Swedish is the Kubhist corpus \citep{Kubhist}, which similar to the German corpora used, is a newspaper corpora with articles from the 18th to the 20th century. \hfill \break
 
