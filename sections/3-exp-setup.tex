@@ -73,7 +73,7 @@ Another challenge that the field is currently facing is having a more robust sys
 
 Numerous types of semantic representations were used by teams during the SemEval task: token embeddings vs. type embeddings and topic modelling vs. vector space models. In both Subtask 1 and 2, the highest-performing systems used static-type embedding models. Token embeddings include more contextual information each time the target word appears in the corpus while type embeddings are average embeddings. However, it was pointed out that raw corpora, rather than lemmatized corpora, would bode better for token embeddings \citep{schlechtweg-etal-2020-semeval}. Following the best-performing models of the tasks, with a larger focus on Subtask 2, a hyperparameter search of models with type embeddings would help determine if the top scores of the task could be surpassed solely on changes in hyperparameters. (ENDSOUNDS WEIRD, EDIT) 
 
-\subsection{Experimental Large-Scale Hyperparameter Search (TOO LONG?)}
+\subsection{Large-Scale Hyperparameter Search}
 
 In order to clarify the scope and justify the hyperparameter range for this large-scale hyperparameter search, the results from the SemEval-2020 Task 1 are used as the starting point. The top-performing models were taken into consideration along with the post-hoc improvements and analyses of those models done by \citet{kaiser-etal-2020-ims}. The pipeline was coded and structured with the possibility of reusing the code for conducting similar hyperparameter searches in future LSC tasks with the hopes of the hyperparameter searches to be based on the findings of this thesis—and in turn, hyperparameters with smaller ranges and motivated by linguistic and domain-specific reasoning. 
 
