@@ -84,6 +84,15 @@ In order to clarify the scope and justify the hyperparameter range for this larg
 
 
 %\cmtKV[inline]{**formatting, also think it would be useful to show the range after each subsubsection heading or would that be redundant, this below could also be neater, need to look into it}
+
+% bad conduct
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
 The initial hyperparameters examined and analysed are shown below:
 \begin{itemize}
     \item language $\in$ [English, German, Latin, Swedish],
@@ -145,6 +154,6 @@ Initially, 1600 models were planned to be trained for this large-scale hyperpara
 
 The longer period of planning the pipeline was to ensure that once training begins, there are as little road blocks as possible. This would ensure that the training process and the storing of models were always organised and never lost or having to be retrained to avoid unnecessary consumption of resources. In hopes of remaining vigilant and conscious of the large amount of energy, resources, and storage being used for this thesis, adjustments to help with time and energy consumption were constantly being made to the pipeline. After the large-scale pipeline and the Orthogonal Procrustes alignment was incompatible with FastText models, the pipeline was restructured and already existing models were reformatted for efficiency purposes. Before the reformatting, 1TB of data and models were being stored. They were then transferred and reformatted as text files to take up significantly less space. To save computational time and energy, the cosine distances for the target words of each model were also stored as text files and will be made available to the public along with the model text files and pipeline. This was incredibly helpful since the initial plan was for the model to iterate through its entire vocabulary to search for the target words and calculate the overall Spearman’s $\rho$ and again for nouns, verbs, and adjectives. Another adjustment made during training was for the Incremental Alignment method. The model trained on the first time period corpus with the same hyperparameter combinations but for the Orthogonal Procrustes alignment method was used and trained again with the second time period corpus. This eliminated training what would have been 720 duplicate models.  
 
-This large undertaking was done using an Intel Xeon CPU E5-2640 v4 (25M Cache, 2.40 GHz). With about X hours total of training and computational time, around XX kg of CO\textsubscript{2} has been used which equates to X bananas, or X kilometers driven, or X avocados from Mexico\footnote{\url{https://www.weforum.org/agenda/2020/02/avocado-environment-cost-food-mexico/}}. These calculations were made through the CO\textsubscript{2} GU mltgpu tutorial\footnote{\url{https://github.com/faustusdotbe/CO2_GU_mltgpu/blob/main/mltgpu_co2.ipynb}} by Simon Hengchen. These statistics are incredibly important to disclose considering the vast environmental impact conducting these experiments will have. 
+This large undertaking was done using an Intel Xeon CPU E5-2640 v4 (25M Cache, 2.40 GHz). With approximately 430 hours total of training and computational time, around 1.372 kg of CO\textsubscript{2} has been used which equates to around 17 bananas, or 7.4 kilometers driven, or 3.2 avocados from Mexico\footnote{\url{https://www.weforum.org/agenda/2020/02/avocado-environment-cost-food-mexico/}}. These calculations were made through the CO\textsubscript{2} GU mltgpu tutorial\footnote{\url{https://github.com/faustusdotbe/CO2_GU_mltgpu/blob/main/mltgpu_co2.ipynb}} by Simon Hengchen. These statistics are incredibly important to disclose considering the vast environmental impact conducting these experiments will have. 
 \citet{strubell-etal-2019-energy} state that the most computationally-hungry models typically obtain the highest scores. \citet{strubell-etal-2019-energy} also raise awareness on the CO\textsubscript{2} consumption within the NLP community and the importance of reporting train times and sensitivity to hyperparameters. By providing these statistics, the overall scores, and other files that require computational time and energy consumption, others are able to  further explore and examine this task without having to do all of the model training again. The reporting and analysing of hyperparameter sensitivities and patterns between the models will also allow researchers to apply the findings of this thesis when selecting hyperparameters in order to train models that are efficient, environmentally-conscious, and yield the best results.
 

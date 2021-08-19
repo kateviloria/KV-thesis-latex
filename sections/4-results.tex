@@ -100,14 +100,16 @@ Every model trained was also evaluated by creating smaller target word lists bas
 
 %\cmtSH[inline]{Could you perhaps try to stick "the block of the same colour" together in the figure? Eg in Swedish and German. It's currently also difficult to know eg if the values for "nn" include those for "nn-control"}
 %\cmtKV[inline]{REARRANGE PIE SLICES}
+%\cmtSH{It would be wiser to rename, in the plot itself, "nn" to "nn-change" -- otherwise it's unclear whether nn-control is part of nn without doing the addition} 
 
 \begin{figure}[h]
   \centering
-  \subcaptionbox{\label{fig:postag-eng}English}{\includegraphics[width = 3in]{sections/figures/eng-pos-target-control.png}}\quad
-  \subcaptionbox{\label{fig:postag-deu}German}{\includegraphics[width = 3in]{sections/figures/deu-pos-target-control.png}}\\
-  \subcaptionbox{\label{fig:postag-lat}Latin}{\includegraphics[width = 3in]{sections/figures/lat-pos-target-control.png}}\quad
-  \subcaptionbox{\label{fig:postag-sve}Swedish}{\includegraphics[width = 3in]{sections/figures/sve-pos-target-control.png}}
-  \caption{Target Word POS-tag Distribution for Each Language. Control words (words that have not undergone semantic change) are shown through a lighter colour respective of its POS-tag and offsetted. }
+  \vspace*{-2mm}
+  \subcaptionbox{\label{fig:postag-eng}English (89$\%$ nouns, 11$\%$ verbs)}{\includegraphics[width = 3in]{sections/figures/eng-pos-target-control.png}}\quad
+  \subcaptionbox{\label{fig:postag-deu}German(67$\%$ nouns, 29$\%$  verbs, 4$\%$ adjectives)}{\includegraphics[width = 3in]{sections/figures/deu-pos-target-control.png}}\\
+  \subcaptionbox{\label{fig:postag-lat}Latin (70$\%$ nouns, 12.5$\%$  verbs, 17.5$\%$ adjectives)}{\includegraphics[width = 3in]{sections/figures/lat-pos-target-control.png}}\quad
+  \subcaptionbox{\label{fig:postag-sve}Swedish (71$\%$ nouns, 19$\%$ verbs, 10$\%$ adjectives)}{\includegraphics[width = 3in]{sections/figures/sve-pos-target-control.png}}
+  \caption{Target Word POS-tag Distribution for Each Language. Control words (words that have not undergone semantic change) are shown through a lighter colour respective of its POS-tag and offsetted. Percentages are rounded to the nearest integer for readability.}
   \label{fig:target-postags}
 \end{figure}
 

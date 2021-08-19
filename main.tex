@@ -48,7 +48,7 @@ Semester and year: & Spring, 2021\\
 Supervisor: & Simon Hengchen\\
 Examiner: & Eleni Gregoromichelaki\\
 Report number: & (number will be provided by the administrators) \\
-Keywords: & (enter a few keywords) 
+Keywords: & semantic change, language change, diachronic word embeddings
 \end{tabular}
 \endgroup
 
@@ -62,7 +62,10 @@ Keywords: & (enter a few keywords)
 \singlespacing
 \section*{Abstract}
 
-Brief summary of research question, background, method, results\ldots
+RE-READ
+
+
+Lexical semantic change (LSC) detection through the use of diachronic corpora and computational methods continues to be a prevalent research area in language change. However, there has not been extensive work on further examining the models being trained and creating a foundation for what hyperparameters are best to use in order to obtain the best results.  In this thesis,  a large-scale hyperparameter search is conducted using the SemEval-2020 Task 1 dataset that includes English, German, Swedish, and Latin. Alongside model hyperparameters, algorithms (Word2Vec and FastText) and alignment methods (Orthogonal Procrustes and Incremental Training) were also included. The hyperparameters that were evaluated are: epochs, vector dimension size, frequency threshold, and shared vocabulary size for the Orthogonal Procrustes alignment method. By amalgamating all of the results and seeing how model performances are affected if one hyperparameter is changed, considerations that must be made before training a model were substantiated. Conclusions made were that there is a large decrease in performance improvement rate after 50 epochs in training and that the typical choice of 300 dimensions for vectors (based on English LSC tasks) does not necessarily apply to other languages. It is also shown that choices in dimension size, frequency threshold, and shared vocabulary size depend on the language in question, the corpus' size, and the genres of texts it is composed of. 
 
 \thispagestyle{empty}
 
@@ -145,11 +148,18 @@ Acknowledgements, etc.
 \addcontentsline{toc}{section}{References}
 \bibliography{anthology,katesbib}
 
-
+\newpage
 \appendix
 \input{sections/9.1-appendix-resources}
+
+\newpage
+
 \input{sections/9.2-appendix-overallresults}
+
+\newpage
+
 \input{sections/9.3-appendix-postagresults}
+\newpage
 
 \end{document}
 
