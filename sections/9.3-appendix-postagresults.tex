@@ -2,168 +2,59 @@
 \label{app-postags}
 
 
-The following 4 tables are the POS-tagged target word lists for English, German, Latin, and Swedish. The English graded truth labels were already POS-tagged when downloaded from SemEval-2020 Task 1. German, Latin, and Swedish were manually annotated by annotators that have linguistic backgrounds. The tables are ranked by highest change score (Cosine Distance) to lowest. A 0 in cosine distance indicates that the word is a control word and did not undergo any LSC. These word lists will be made available to the public.
+The following 4 tables are the POS-tagged target word lists for English, German, Latin, and Swedish. The English graded truth labels were already POS-tagged when downloaded from SemEval-2020 Task 1. German, Latin, and Swedish were manually annotated by annotators that have linguistic backgrounds. The tables are ranked by highest change score (Cosine Distance) to lowest. A 0 in cosine distance indicates that the word is a control word and did not undergo any LSC. The number of occurrences for each target word in both corpora are also included. These word lists will be made available to the public.
 
-
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc} 
-\toprule
-Words         & POS & Cosine Distance  \\ 
-\midrule
-plane         & nn  & 0.882348         \\
-tip           & vb  & 0.678899         \\
-prop          & nn  & 0.624760         \\
-graft         & nn  & 0.553976         \\
-record        & nn  & 0.427350         \\
-ball          & nn  & 0.409367         \\
-stab          & nn  & 0.400590         \\
-twist         & nn  & 0.398493         \\
-bit           & nn  & 0.306577         \\
-head          & nn  & 0.295256         \\
-ounce         & nn  & 0.284899         \\
-rag           & nn  & 0.276515         \\
-player        & nn  & 0.273667         \\
-edge          & nn  & 0.260966         \\
-land          & nn  & 0.223448         \\
-lass          & nn  & 0.212590         \\
-pin           & vb  & 0.207212         \\
-word          & nn  & 0.179307         \\
-stroke        & vb  & 0.176231         \\
-circle        & vb  & 0.171087         \\
-part          & nn  & 0.161271         \\
-donkey        & nn  & 0.160104         \\
-gas           & nn  & 0.159570         \\
-attack        & nn  & 0.143970         \\
-thump         & nn  & 0.142992         \\
-face          & nn  & 0.137791         \\
-quilt         & nn  & 0.123145         \\
-lane          & nn  & 0.103720         \\
-bag           & nn  & 0.100364         \\
-multitude     & nn  & 0.100364         \\
-savage        & nn  & 0.096869         \\
-contemplation & nn  & 0.070839         \\
-tree          & nn  & 0.070839         \\
-relationship  & nn  & 0.056218         \\
-fiction       & nn  & 0.020723         \\
-risk          & nn  & 0.000000         \\
-chairman      & nn  & 0.000000         \\
-\bottomrule
-\end{tabular}
-\caption{English Graded Truth Target WordsOLD}
-\label{tab:eng-truthtargetsOLD}
-\end{table}
 
 
 \begin{table}
 \centering
 \begin{tabular}{ccccc} 
 \toprule
-\textbf{ Words } & \textbf{POS } & \textbf{ Cosine Distance } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
+\textbf{ Words } & \textbf{POS } & \textbf{ Cosine Distance} & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq  }  \\ 
 \midrule
-plane            & nn            & 0.882348           & 4                  & 12                  \\
-tip              & vb            & 0.678899           & 31                 & 285                 \\
-prop             & nn            & 0.624760           & 20                 & 110                 \\
-graft            & nn            & 0.553976           & 33                 & 18                  \\
-record           & nn            & 0.427350           & 253                & 276                 \\
-ball             & nn            & 0.409367           & 7                  & 34                  \\
-stab             & nn            & 0.400590           & 50                 & 83                  \\
-twist            & nn            & 0.398493           & 115                & 332                 \\
-bit              & nn            & 0.306577           & 46                 & 456                 \\
-head             & nn            & 0.295256           & 150                & 840                 \\
-ounce            & nn            & 0.284899           & 0                  & 0                   \\
-rag              & nn            & 0.276515           & 2                  & 4                   \\
-player           & nn            & 0.273667           & 0                  & 1                   \\
-edge             & nn            & 0.260966           & 22                 & 73                  \\
-land             & nn            & 0.223448           & 262                & 428                 \\
-lass             & nn            & 0.212590           & 0                  & 0                   \\
-pin              & vb            & 0.207212           & 79                 & 131                 \\
-word             & nn            & 0.179307           & 28                 & 11                  \\
-stroke           & vb            & 0.176231           & 182                & 198                 \\
-circle           & vb            & 0.171087           & 540                & 528                 \\
-part             & nn            & 0.161271           & 979                & 441                 \\
-donkey           & nn            & 0.160104           & 0                  & 3                   \\
-gas              & nn            & 0.159570           & 0                  & 4                   \\
-attack           & nn            & 0.143970           & 248                & 370                 \\
-thump            & nn            & 0.142992           & 20                 & 58                  \\
-face             & nn            & 0.137791           & 208                & 1131                \\
-quilt            & nn            & 0.123145           & 10                 & 10                  \\
-lane             & nn            & 0.103720           & 2                  & 3                   \\
-bag              & nn            & 0.100364           & 14                 & 22                  \\
-multitude        & nn            & 0.100364           & 0                  & 0                   \\
-savage           & nn            & 0.096869           & 307                & 76                  \\
-contemplation    & nn            & 0.070839           & 0                  & 0                   \\
-tree             & nn            & 0.070839           & 2                  & 2                   \\
-relationship     & nn            & 0.056218           & 0                  & 0                   \\
-fiction          & nn            & 0.020723           & 0                  & 0                   \\
-risk             & nn            & 0.000000           & 82                 & 169                 \\
-chairman         & nn            & 0.000000           & 5                  & 5                   \\
+plane            & nn            & 0.882348                 & 278                & 792                 \\
+tip              & vb            & 0.678899                 & 119                & 241                 \\
+prop             & nn            & 0.624760                 & 121                & 147                 \\
+graft            & nn            & 0.553976                 & 119                & 109                 \\
+record           & nn            & 0.427350                 & 420                & 1188                \\
+ball             & nn            & 0.409367                 & 440                & 878                 \\
+stab             & nn            & 0.400590                 & 92                 & 117                 \\
+twist            & nn            & 0.398493                 & 103                & 186                 \\
+bit              & nn            & 0.306577                 & 296                & 622                 \\
+head             & nn            & 0.295256                 & 3599               & 4127                \\
+ounce            & nn            & 0.284899                 & 208                & 189                 \\
+rag              & nn            & 0.276515                 & 158                & 208                 \\
+player           & nn            & 0.273667                 & 132                & 939                 \\
+edge             & nn            & 0.260966                 & 457                & 1072                \\
+land             & nn            & 0.223448                 & 2321               & 1624                \\
+lass             & nn            & 0.212590                 & 111                & 106                 \\
+pin              & vb            & 0.207212                 & 114                & 217                 \\
+word             & nn            & 0.179307                 & 4387               & 3166                \\
+stroke           & vb            & 0.176231                 & 110                & 227                 \\
+circle           & vb            & 0.171087                 & 131                & 245                 \\
+part             & nn            & 0.161271                 & 4410               & 3213                \\
+donkey           & nn            & 0.160104                 & 118                & 148                 \\
+gas              & nn            & 0.159570                 & 155                & 680                 \\
+attack           & nn            & 0.143970                 & 454                & 833                 \\
+thump            & nn            & 0.142992                 & 89                 & 127                 \\
+face             & nn            & 0.137791                 & 3394               & 3932                \\
+quilt            & nn            & 0.123145                 & 106                & 189                 \\
+lane             & nn            & 0.103720                 & 211                & 289                 \\
+multitude        & nn            & 0.100364                 & 214                & 899                 \\
+bag              & nn            & 0.100364                 & 475                & 131                 \\
+savage           & nn            & 0.096869                 & 504                & 133                 \\
+contemplation    & nn            & 0.070839                 & 240                & 111                 \\
+tree             & nn            & 0.070839                 & 2322               & 1596                \\
+relationship     & nn            & 0.056218                 & 130                & 841                 \\
+fiction          & nn            & 0.020723                 & 202                & 326                 \\
+risk             & nn            & 0.000000                 & 286                & 643                 \\
+chairman         & nn            & 0.000000                 & 147                & 683                 \\
 \bottomrule
 \end{tabular}
 \caption{English Graded Truth Target Words}
 \label{tab:eng-truthtargets}
 \end{table}
 
-
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc} 
-\toprule
-Words              & POS & Cosine Distance  \\ 
-\midrule
-abgebrüht          & adj & 0.832645         \\
-Ohrwurm            & nn  & 0.832451         \\
-Engpaß             & nn  & 0.819957         \\
-abbauen            & vb  & 0.740115         \\
-ausspannen         & vb  & 0.706690         \\
-Eintagsfliege      & nn  & 0.660060         \\
-Knotenpunkt        & nn  & 0.647627         \\
-artikulieren       & vb  & 0.615743         \\
-abdecken           & vb  & 0.606884         \\
-Dynamik            & nn  & 0.578845         \\
-Abgesang           & nn  & 0.578548         \\
-verbauen           & vb  & 0.578125         \\
-Fuß                & nn  & 0.564633         \\
-Armenhaus          & nn  & 0.519670         \\
-zersetzen          & vb  & 0.505880         \\
-Rezeption          & nn  & 0.464989         \\
-packen             & vb  & 0.462253         \\
-Schmiere           & nn  & 0.437671         \\
-Sensation          & nn  & 0.406144         \\
-Titel              & nn  & 0.393045         \\
-Mißklang           & nn  & 0.379723         \\
-Manschette         & nn  & 0.355802         \\
-beimischen         & vb  & 0.307359         \\
-überspannen        & vb  & 0.252066         \\
-vorliegen          & vb  & 0.190266         \\
-Entscheidung       & nn  & 0.141681         \\
-vorweisen          & vb  & 0.126837         \\
-Lyzeum             & nn  & 0.126381         \\
-voranstellen       & vb  & 0.124192         \\
-Tragfähigkeit      & nn  & 0.114694         \\
-Spielball          & nn  & 0.103290         \\
-Festspiel          & nn  & 0.100364         \\
-Ausnahmegesetz     & nn  & 0.093138         \\
-Gesichtsausdruck   & nn  & 0.077318         \\
-Tier               & nn  & 0.073466         \\
-Naturschönheit     & nn  & 0.071561         \\
-vergönnen          & vb  & 0.071197         \\
-Frechheit          & nn  & 0.070839         \\
-Seminar            & nn  & 0.064486         \\
-aufrechterhalten   & vb  & 0.036109         \\
-Unentschlossenheit & nn  & 0.000000         \\
-Ackergerät         & nn  & 0.000000         \\
-Truppenteil        & nn  & 0.000000         \\
-Pachtzins          & nn  & 0.000000         \\
-Mulatte            & nn  & 0.000000         \\
-Einreichung        & nn  & 0.000000         \\
-weitgreifend       & adj & 0.000000         \\
-Kubikmeter         & nn  & 0.000000         \\
-\bottomrule
-\end{tabular}
-\caption{German Graded Truth Target Words OLD}
-\label{tab:deu-truthtargetsOLD}
-\end{table}
 
 
 \begin{table}
@@ -227,57 +118,6 @@ Kubikmeter         & nn            & 0.000000           & 123                & 1
 \end{table}
 
 
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc} 
-\toprule
-Words       & POS & Cosine Distance  \\ 
-\midrule
-pontifex    & nn  & 0.905600         \\
-imperator   & nn  & 0.846816         \\
-beatus      & adj & 0.816392         \\
-sacramentum & nn  & 0.688040         \\
-titulus     & nn  & 0.619797         \\
-potestas    & nn  & 0.548475         \\
-scriptura   & nn  & 0.516652         \\
-licet       & vb  & 0.506818         \\
-salus       & nn  & 0.469503         \\
-humanitas   & nn  & 0.455671         \\
-sanctus     & adj & 0.425203         \\
-virtus      & nn  & 0.397110         \\
-sensus      & nn  & 0.393510         \\
-credo       & vb  & 0.370992         \\
-templum     & nn  & 0.370184         \\
-nepos       & nn  & 0.364883         \\
-regnum      & nn  & 0.355575         \\
-jus         & nn  & 0.350099         \\
-adsumo      & vb  & 0.342616         \\
-dubius      & adj & 0.337623         \\
-civitas     & nn  & 0.322392         \\
-honor       & nn  & 0.290373         \\
-dux         & nn  & 0.289054         \\
-cohors      & nn  & 0.280830         \\
-senatus     & nn  & 0.264773         \\
-sapientia   & nn  & 0.234681         \\
-poena       & nn  & 0.230906         \\
-nobilitas   & nn  & 0.181606         \\
-dolus       & nn  & 0.176682         \\
-fidelis     & adj & 0.170439         \\
-acerbus     & adj & 0.169367         \\
-voluntas    & nn  & 0.144737         \\
-consul      & nn  & 0.129886         \\
-consilium   & nn  & 0.102932         \\
-oportet     & vb  & 0.102492         \\
-necessarius & adj & 0.095190         \\
-itero       & vb  & 0.039678         \\
-simplex     & adj & 0.009540         \\
-hostis      & nn  & 0.000000         \\
-ancilla     & nn  & 0.000000         \\
-\bottomrule
-\end{tabular}
-\caption{Latin Graded Truth Target WordsOLD}
-\label{tab:lat-truthtargetsOLD}
-\end{table}
 
 
 \begin{table}
@@ -332,49 +172,6 @@ ancilla          & nn            & 0.000000           & 96                 & 603
 \label{tab:lat-truthtargets}
 \end{table}
 
-
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc} 
-\toprule
-Words        & POS & Cosine Distance  \\ 
-\midrule
-medium       & nn  & 0.603554         \\
-krita        & nn  & 0.442764         \\
-motiv        & nn  & 0.353028         \\
-ledning      & nn  & 0.337868         \\
-granskare    & nn  & 0.319612         \\
-uppläggning  & nn  & 0.293040         \\
-beredning    & nn  & 0.263710         \\
-konduktör    & nn  & 0.247635         \\
-bearbeta     & vb  & 0.243557         \\
-notis        & nn  & 0.212213         \\
-uppfattning  & nn  & 0.195435         \\
-undertrycka  & vb  & 0.166747         \\
-färg         & nn  & 0.163421         \\
-blockera     & vb  & 0.159570         \\
-antyda       & vb  & 0.143225         \\
-central      & adj & 0.122427         \\
-kemisk       & adj & 0.100908         \\
-aktiv        & adj & 0.087075         \\
-by           & nn  & 0.074686         \\
-gagn         & nn  & 0.071197         \\
-annandag     & nn  & 0.070839         \\
-bröllop      & nn  & 0.070839         \\
-studie       & nn  & 0.070443         \\
-förhandling  & nn  & 0.002218         \\
-bedömande    & vb  & 0.000443         \\
-kokärt       & nn  & 0.000000         \\
-bolagsstämma & nn  & 0.000000         \\
-uppfostran   & nn  & 0.000000         \\
-uträtta      & vb  & 0.000000         \\
-vaktmästare  & nn  & 0.000000         \\
-vegetation   & nn  & 0.000000         \\
-\bottomrule
-\end{tabular}
-\caption{Swedish Graded Truth Target WordsOLD}
-\label{tab:sve-truthtargetsOLD}
-\end{table}
 
 
 \begin{table}
