@@ -54,22 +54,19 @@ Another extension of the Skip-gram model resulting in a new approach for creatin
 %\cmtSH{Here, perhaps an example to illustrate? You could have ENG ``the boy" \texttt{the} \texttt{boy} vs SE \texttt{pojken}, where in FastText \texttt{pojken} is very close to \texttt{pojke} in Swedish but not eg in English word2vec?} 
 
 
-\begin{table}
+\begin{table}[h]
 \centering
-\refstepcounter{table}
-\begin{tabular}{|c|c|l|} 
+\begin{tabular}{ccl} 
 \toprule
-\textbf{Language } & \textbf{W2V } & \multicolumn{1}{c|}{\textbf{FT \emph{n}-grams }}                                                                                                                                                   \\ 
+\textbf{Language } & \textbf{W2V } & \multicolumn{1}{c}{\textbf{FT \textit{n}-grams }}                                                                                                                                           \\ 
 \hline
-English            & the, sun              & \begin{tabular}[c]{@{}l@{}}\textless{}th, the, he\textgreater{}, \textless{}the\textgreater{}\\\textless{}su, un\textgreater{}, \textless{}sun\textgreater{}\end{tabular}                   \\ 
-\hline
-French             & le, soleil            & \begin{tabular}[c]{@{}l@{}}\textless{}le, le\textgreater{}, \textless{}le\textgreater{}\\\textless{}so, sol, ole, lei, eil, il\textgreater{}, \textless{}soleil\textgreater{}\end{tabular}  \\ 
-\hline
-Swedish            & solen                 & \textless{}so, sol, ole, len, en\textgreater{},~ \textless{}solen\textgreater{}                                                                                                                                                               \\
+English            & the, sun      & \begin{tabular}[c]{@{}l@{}}\textless{}th, the, he\textgreater{}, \textless{}the\textgreater{}\\\textless{}su, un\textgreater{}, \textless{}sun\textgreater{}\end{tabular}                   \\
+French             & le, soleil    & \begin{tabular}[c]{@{}l@{}}\textless{}le, le\textgreater{}, \textless{}le\textgreater{}\\\textless{}so, sol, ole, lei, eil, il\textgreater{}, \textless{}soleil\textgreater{}\end{tabular}  \\
+Swedish            & solen         & \textless{}so, sol, ole, len, en\textgreater{}, \textless{}solen\textgreater{}                                                                                                                                                                \\
 \bottomrule
 \end{tabular}
+\caption{Vector examples for both Word2Vec and FastText where \emph{n}=3 for FastText. \textless{} indicates word-initial and \textgreater{} indicates word-final. Abbreviations: W2V=Word2Vec, FT=FastText.}
 \label{tab:vec-examples}
-\caption{Vector examples for both Word2Vec and FastText where \emph{n}=3 for FastText. Abbreviations: W2V=Word2Vec, FT=FastText.}
 \end{table}
 
 
@@ -95,4 +92,4 @@ Aligning through Orthogonal Procrustes differs from Incremental Training as each
 \end{figure}
 
 
-On the other hand, the process of alignment is not always necessary for detecting LSC. The use of dynamic word embeddings, helps alleviate the need for alignment. Temporal Referencing, presented by \citet{dubossarsky-etal-2019-time}, is a method where diachronic corpora is treated as one—sharing context information across time. This method was motivated by the fact that alignment should be circumvented as \citet{dubossarsky-etal-2017-outta} shows that the process introduces noise.  Diachronic corpora are trained synchronically and vectors exist together in one vector space. Word vectors are situated in relation to each other and target words are appended with a time-specific token (indicating which corpus they appear in).
+On the other hand, the process of alignment is not always necessary for detecting LSC. The use of dynamic word embeddings, helps alleviate the need for alignment. Temporal Referencing (TR), presented by \citet{dubossarsky-etal-2019-time}, is a method where diachronic corpora is treated as one corpus—sharing context information across time. This method was motivated by the fact that alignment should be circumvented as \citet{dubossarsky-etal-2017-outta} show that the process introduces noise. TR is a ``relabeling trick to achieve the same goals of the other dynamic methods while using a static embedding method" \citep{tahmasebi-survey2018}. Diachronic corpora are trained synchronically and vectors exist together in one vector space. Word vectors are situated in relation to each other and target words are relabelled and appended with a time-specific token (indicating which corpus they appear in) during training. Relabelling will only occur if the word is a target word. A word \emph{w} will not be relabelled and appear as a ``normal" word vector if it appears as a context word since this information can be shared across time periods. 

@@ -2,7 +2,7 @@
 \label{app-postags}
 
 
-The following tables are the POS-tagged target word lists for English, German, Latin, and Swedish. The English graded truth labels were already POS-tagged when downloaded from SemEval-2020 Task 1. German, Latin, and Swedish were manually annotated by annotators that have linguistic backgrounds. The tables are ranked by highest change score (Cosine Distance) to lowest. A 0 in cosine distance indicates that the word is a control word and did not undergo any LSC. The number of occurrences for each target word in both corpora are also included. These word lists will be made available to the public and can be accessed in \autoref{app-resources}.
+The following tables are the POS-tagged target word lists for English, German, Latin, and Swedish. The English graded truth labels were already POS-tagged when downloaded from SemEval-2020 Task 1. German, Latin, and Swedish were manually annotated by annotators that have linguistic backgrounds. The tables are ranked by highest change score (Jensen-Shannon Divergence (J-S Divergence)) to lowest. A 0 in J-S Divergence indicates that the word is a control word and did not undergo any LSC. The number of occurrences for each target word in both corpora are also included. These word lists will be made available to the public and can be accessed in \autoref{app-resources}.
 
 
 
@@ -10,7 +10,7 @@ The following tables are the POS-tagged target word lists for English, German, L
 \centering
 \begin{tabular}{ccccc} 
 \toprule
-\textbf{ Words } & \textbf{POS } & \textbf{ Cosine Distance} & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq  }  \\ 
+\textbf{ Words } & \textbf{POS } & \textbf{ J-S Divergence } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq  }  \\ 
 \midrule
 plane            & nn            & 0.882348                 & 278                & 792                 \\
 tip              & vb            & 0.678899                 & 119                & 241                 \\
@@ -61,7 +61,7 @@ chairman         & nn            & 0.000000                 & 147               
 \centering
 \begin{tabular}{ccccc} 
 \toprule
-\textbf{ Words }   & \textbf{POS } & \textbf{ Cosine Distance } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
+\textbf{ Words }   & \textbf{POS } & \textbf{ J-S Divergence } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
 \midrule
 abgebrüht          & adj           & 0.832645           & 64                 & 106                 \\
 Ohrwurm            & nn            & 0.832451           & 39                 & 103                 \\
@@ -124,7 +124,7 @@ Kubikmeter         & nn            & 0.000000           & 123                & 1
 \centering
 \begin{tabular}{ccccc} 
 \toprule
-\textbf{ Words } & \textbf{ POS } & \textbf{ Cosine Distance } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
+\textbf{ Words } & \textbf{ POS } & \textbf{ J-S Divergence } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
 \midrule
 pontifex         & nn            & 0.905600           & 134                & 1488                \\
 imperator        & nn            & 0.846816           & 732                & 10617               \\
@@ -178,7 +178,7 @@ ancilla          & nn            & 0.000000           & 96                 & 603
 \centering
 \begin{tabular}{ccccc} 
 \toprule
-\textbf{ Words } & \textbf{ POS } & \textbf{ Cosine Distance } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
+\textbf{ Words } & \textbf{ POS } & \textbf{ J-S Divergence } & \textbf{ C$_1$ Freq } & \textbf{ C$_2$ Freq }  \\ 
 \midrule
 medium           & nn            & 0.603554           & 706                & 517                 \\
 krita            & nn            & 0.442764           & 473                & 377                 \\

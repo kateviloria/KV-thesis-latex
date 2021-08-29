@@ -3,23 +3,23 @@
 
 \subsection{Dataset}
 
-The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \citep{schlechtweg-etal-2020-semeval} provides manually-annotated datasets for four languages (English, German, Latin, and Swedish). It is composed of a diachronic corpus pair and a set of target words for each language. Having a gold standard that is based on roughly 100,000 human judgments, researchers now have a more concrete foundation for comparing models. There are two subtasks that differ by the assessment of LSC: binary classification and ranking. In order to identify and evaluate the subtle effects of hyperparameter changes, this thesis follows Subtask 2—based on a ranking of the target words depending on the degree of LSC between the first and second corpus. In contrast to Subtask 1’s binary classification, the method of ranking in Subtask 2 “captures fine-grained changes in the two sense frequency distributions” \citep{schlechtweg-etal-2020-semeval}. The two corpora for each language (C$_1$ and C$_2$) were divided based on data size and the availability of target words. Pre-processing of all corpora involved lemmatization, removal of all punctuation, and randomly shuffling sentences within each time-specific corpora. The number of tokens after pre-processing for each corpus is seen in \autoref{tab:subcorpora-size}.
+The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \citep{schlechtweg-etal-2020-semeval} provides manually-annotated datasets for four languages (English, German, Latin, and Swedish). It is composed of a diachronic corpus pair and a set of target words for each language. Having a gold standard that is based on roughly 100,000 human judgments, researchers now have a more concrete foundation for comparing models. There are two subtasks that differ by the assessment of LSC: binary classification and ranking. In order to identify and evaluate the subtle effects of hyperparameter changes, this thesis follows Subtask 2—based on a ranking of the target words depending on the degree of LSC between the first and second corpus. In contrast to Subtask 1’s binary classification, the method of ranking in Subtask 2 “captures fine-grained changes in the two sense frequency distributions” \citep{schlechtweg-etal-2020-semeval}. The ranking method also allows the calculations to be taken at face value. With the binary method, a threshold must be chosen to categorise each target word as no change or change words (0 or 1 respectively). This threshold will depend on the measure being chosen and the amount and size of features of the word vectors. This is a classic case of Curse of Dimensionality and introduces noice and arbitrary decisions which is not ideal. The two corpora for each language (C$_1$ and C$_2$) were divided based on data size and the availability of target words. Pre-processing of all corpora involved lemmatization, removal of all punctuation, and randomly shuffling sentences within each time-specific corpora. The number of tokens after pre-processing for each corpus is seen in \autoref{tab:subcorpora-size}.
+
+\cmtKV[inline]{REREAD for continuity}
+
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|cc|cc|} 
+\begin{tabular}{lcccc} 
+\toprule
+\textbf{}        & \multicolumn{2}{c}{\textbf{$C_1$}}                  & \multicolumn{2}{c}{\textbf{$C_2$}}                   \\
+                 & \textit{\textbf{corpus}} & \textit{\textbf{tokens}} & \textit{\textbf{corpus}} & \textit{\textbf{tokens}}  \\ 
 \cline{2-5}
-\multicolumn{1}{l|}{\textbf{}} & \multicolumn{2}{c|}{\textbf{$C_1$}}                 & \multicolumn{2}{c|}{\textbf{$C_2$}}                  \\
-\multicolumn{1}{l|}{}          & \textit{\textbf{corpus}} & \textit{\textbf{tokens}} & \textit{\textbf{corpus}} & \textit{\textbf{tokens}}  \\ 
-\hline
-\textbf{English}               & CCOHA                    & 6.5M                     & CCOHA                    & 6.7M                      \\ 
-\hline
-\textbf{German}                & DTA                      & 70.2M                    & BZ + ND                  & 72.3M                     \\ 
-\hline
-\textbf{Latin}                 & LatinISE                 & 1.7M                     & LatinISE                 & 9.4M                      \\ 
-\hline
-\textbf{Swedish}               & Kubhist                  & 71.0M                    & Kubhist                  & 110.0M                    \\
-\hline
+\textbf{English} & CCOHA                    & 6.5M                     & CCOHA                    & 6.7M                      \\
+\textbf{German}  & DTA                      & 70.2M                    & BZ + ND                  & 72.3M                     \\
+\textbf{Latin}   & LatinISE                 & 1.7M                     & LatinISE                 & 9.4M                      \\
+\textbf{Swedish} & Kubhist                  & 71.0M                    & Kubhist                  & 110.0M                    \\
+\bottomrule
 \end{tabular}
 \caption{Corpus Sizes for Each Diachronic Language Pair}
 \label{tab:subcorpora-size}
@@ -27,20 +27,22 @@ The SemEval-2020 Task 1 on Unsupervised Detection of Lexical Semantic Change \ci
 
 \autoref{tab:subcorpora-time} below shows the time periods for each sub-corpus of each language. The Clean Corpus of Historical American English (CCOHA) consists of different types of texts from the 1810s to the 2000s—fiction, non-fiction, magazines, and newspapers \citep{davies2012expanding, alatrash-etal-2020-ccoha}. The first time period corpus used for German is Deutsches Textarchiv (DTA) which is composed of different genres of text from the 16\textsuperscript{th}-20\textsuperscript{th} centuries \citep{dta2017}. For the second time period corpus, a combination of the Berliner Zeitung (BZ) and Neues Deutschland (ND) corpora is used \citep{berliner2018,neues2018}. Both German corpora are comprised of newspaper articles from the years 1945-1993. The corpora used for Latin, LatinISE \citep{mcgillivray-kilgarriff}, is a compilation of texts originating from 2\textsuperscript{nd} century B.C. to 21\textsuperscript{st} century A.D. from three online digital libraries. The corpora used for Swedish is the Kubhist corpus \citep{Kubhist}, which similarly to the German corpora used, is a newspaper corpus with articles from the 18\textsuperscript{th} to the 20\textsuperscript{th} century. \hfill \break
 
+
 \begin{table}[h]
-\small
 \centering
-\begin{tabular}{l|cc|cc|}
+\begin{tabular}{lcccc} 
+\toprule
+\textbf{}        & \multicolumn{2}{c}{\textbf{$C_1$}}                  & \multicolumn{2}{c}{\textbf{$C_2$}}                   \\
+                 & \textit{\textbf{corpus}} & \textit{\textbf{period}} & \textit{\textbf{corpus}} & \textit{\textbf{period}}  \\ 
 \cline{2-5}
-\textbf{}      & \multicolumn{2}{c|}{\textbf{$C_1$}}                    & \multicolumn{2}{c|}{\textbf{$C_2$}}                    \\
-                                       & \textit{\textbf{corpus}} & \textit{\textbf{period}} & \textit{\textbf{corpus}} & \textit{\textbf{period}} \\ \hline
-\multicolumn{1}{|l|}{\textbf{English}} & CCOHA                    & 1810-1860                & CCOHA                    & 1960-2010                \\ \hline
-\multicolumn{1}{|l|}{\textbf{German}}  & DTA                      & 1800-1899                & BZ + ND                  & 1946-1990                \\ \hline
-\multicolumn{1}{|l|}{\textbf{Latin}}   & LatinISE                 & -200-0                   & LatinISE                 & 0-2000                   \\ \hline
-\multicolumn{1}{|l|}{\textbf{Swedish}} & Kubhist                  & 1790-1830                & Kubhist                  & 1895-1903                \\ \hline
+\textbf{English} & CCOHA                    & 1810-1860                & CCOHA                    & 1960-2010                 \\
+\textbf{German}  & DTA                      & 1800-1899                & BZ + ND                  & 1946-1990                 \\
+\textbf{Latin}   & LatinISE                 & -200-0                   & LatinISE                 & 0-2000                    \\
+\textbf{Swedish} & Kubhist                  & 1790-1830                & Kubhist                  & 1895-1903                 \\
+\bottomrule
 \end{tabular}
 \caption{Time periods of each sub-corpora for each language.}
-\label{tab:subcorpora-time}
+\label{tab:subcorpora-timeNEW}
 \end{table}
 %\hfill \break
 
@@ -52,15 +54,15 @@ Each language is accompanied by a target word list that consists of words that h
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[h]
-\small
 \centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Language} & \textbf{NN} & \textbf{VB} & \textbf{ADJ} \\ \hline
-\textit{English}                          & 33          & 4           & 0            \\ \hline
-\textit{German}                           & 32          & 14          & 2            \\ \hline
-\textit{Latin}                            & 28          & 5           & 7            \\ \hline
-\textit{Swedish}                          & 22          & 6           & 3            \\ \hline
+\begin{tabular}{cccc} 
+\toprule
+\textbf{Language} & \textbf{NN} & \textbf{VB} & \textbf{ADJ}  \\
+\textit{English}  & 33          & 4           & 0             \\
+\textit{German}   & 32          & 14          & 2             \\
+\textit{Latin}    & 28          & 5           & 7             \\
+\textit{Swedish}  & 22          & 6           & 3             \\
+\bottomrule
 \end{tabular}
 \caption{Number of nouns (NN), verbs (VB), and adjectives (ADJ) in each language's target word list.}
 \label{tab:postag-breakdown}
@@ -80,6 +82,7 @@ Numerous types of semantic representations were used by teams during the SemEval
 
 In order to clarify the scope and justify the hyperparameter range for this large-scale hyperparameter search, the results from the SemEval-2020 Task 1 are used as the starting point. The top-performing models were taken into consideration along with the post-hoc improvements and analyses of those models done by \citet{kaiser-etal-2020-ims}. The pipeline was coded and structured with the possibility of reusing the code for conducting similar hyperparameter searches in future LSC tasks with the hopes of the hyperparameter searches to be based on the findings of this thesis—and in turn, hyperparameters with smaller ranges and motivated by linguistic and domain-specific reasoning. 
 
+\cmtKV[inline]{paraphrase in turn}
 %\cmtKV[inline]{i'm also unsure what and how much to say about this and again relating it back to this section}
 
 %\cmtSH[inline]{This was brought up when we discussed the work of Paul Nulty: he has tried to keep the 5-word window, but having that 5-word window much further away on both sides, with the aim of getting more paradigmatic relationships than syntagmatic ones. This can be mentioned in passing when discussing the ``context window" hyperparameter}
@@ -88,14 +91,14 @@ In order to clarify the scope and justify the hyperparameter range for this larg
 %\cmtKV[inline]{**formatting, also think it would be useful to show the range after each subsubsection heading or would that be redundant, this below could also be neater, need to look into it}
 
 % bad conduct
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-The initial hyperparameters examined and analysed are shown below:
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+The initial hyperparameters examined and the effects of which are analysed are shown below:
 \begin{itemize}
     \item language $\in$ [English, German, Latin, Swedish],
     \item algorithm $\in$ [Word2Vec, FastText],
@@ -106,17 +109,18 @@ The initial hyperparameters examined and analysed are shown below:
 \end{itemize}%\vspace{+1ex}
 
 
-Hyperparameter combinations will consist of one selected variable for each hyperparameter listed above. Language, algorithm, and alignment method are not canonically hyperparameters but are included when mentioning hyperparameter combinations for the purpose of readability throughout this thesis. Hyperparameters that do stay consistent throughout all trained models are: window size=5, workers=64, and seed=1830. The workers hyperparameter refers to how many worker threads should be used during training (more workers means faster training) and the seed hyperparameter is a random number that is concatenated for the initial vectors of each word. The window size hyperparameter is the maximum distance before and after the current word in a sentence. Changes in window size was also explored as a hyperparameter since there has been research on how different window sizes will learn different aspects of a word meaning. Smaller window sizes may learn more about syntagmatic relationships between the current word and its surrounding words while larger window sizes might learn more paradigmatic relationships \citep{dca2019-nulty}. Ultimately, window size was decided to remain the same and will be saved for future work.
+Hyperparameter combinations will consist of one selected variable for each hyperparameter listed above. Language, algorithm, and alignment method are not canonically hyperparameters but are included when mentioning hyperparameter combinations for the purpose of readability throughout this thesis. 
+Model settings that stay constant throughout training are: workers=64 and seed=1830. The workers setting refers to how many worker threads should be used during training (more workers means faster training) and the seed is a random number that is concatenated for the initial vectors of each word (disclosed for reproducibility). The window size hyperparameter is the maximum distance before and after the current word in a sentence. The window size hyperparameter is consistently at 5 throughout training. Changes in window size was also explored as a hyperparameter since there has been research on how different window sizes will learn different aspects of a word meaning. Smaller window sizes may learn more about syntagmatic relationships between the current word and its surrounding words while larger window sizes might learn more paradigmatic relationships \citep{dca2019-nulty}. Ultimately, window size was decided to remain the same and will be saved for future work since it would also exponentially increase the amount of hyperparameter combinations to be trained.
 
 
 \subsubsection{Algorithms}
 
-Type embeddings were used in the top-performing models for all four languages in Subtask 2.  Since type embeddings overwhelmingly outperformed token embeddings, static-type embeddings were chosen to be implemented. The same is seen in the hyperparameter search conducted by \citet{hengchen2021SBXrushifteval} on the Russian dataset RuShiftEval \citep{rushifteval2021}. The SGNS algorithm was used by the top 4 teams whose models performed well in Subtask 2 of the SemEval task. BERT was not used as \citet{laicher-2020} demonstrated that BERT yielded poor results in an LSC task for Italian. Even though it is usually an advantage to have a pre-trained model with billions of tokens like BERT, the information learned from the pre-trained model also runs a risk of shrouding the important information that should be learned from the corpus being examined \citep{hengchen2021challenges}. The variables in the algorithm hyperparameter is based on the difference in use of \emph{n}-grams of Word2Vec and FastText. Word2Vec has shown success in LSC tasks and the use of FastText would address the morphological considerations that should be made as shown by \citet{bojanowski2017enriching}. 
+Type embeddings were used in the top-performing models for all four languages in Subtask 2.  Since type embeddings overwhelmingly outperformed token embeddings, static-type embeddings were chosen to be implemented. The same is seen in the hyperparameter search conducted by \citet{hengchen2021SBXrushifteval} on the Russian dataset RuShiftEval \citep{rushifteval2021}. The SGNS algorithm was used by the top 4 teams whose models performed well in Subtask 2 of the SemEval task. BERT was not used as \citet{laicher-2020} demonstrated that BERT yielded poor results in an LSC task for Italian. Even though it is usually an advantage to have a pre-trained model with billions of tokens like BERT, the information learned from the pre-trained model also runs a risk of shrouding the important information that should be learned from the corpus being examined \citep{hengchen2021challenges}. The variables in the algorithm hyperparameter is based on the difference in use of \emph{n}-grams of Word2Vec and FastText. Word2Vec has shown success in LSC tasks and the use of FastText would address morphological considerations that should be made, Optical Character Recognition (OCR) issues when reading corpora, and spelling changes that might have occurred \citep{bojanowski2017enriching}. 
 
 
 \subsubsection{Alignment Methods}
 
-The two alignment methods used are Orthogonal Procrustes and Incremental Training. Orthogonal Procrustes is implemented by using the first time period model as the base and the second time period model is “stretched” to fit the first. This is motivated by the fact that language builds on itself. In order to make comparisons of words changing over time, new usages of already existing words and new words (second time period model) should be made to fit into the contexts and usages that it proceeds (first time period model). The Gensim Word2Vec Procrustes Alignment tutorial by Ryan Heuser\footnote{\url{https://gist.github.com/quadrismegistus/09a93e219a6ffc4f216fb85235535faf}}  was initially used but was not compatible with FastText models. These aligned models were still saved and evaluated. All models were then aligned following the implementation of Team UWB @ SemEval \citet{prazak-etal-2020-uwb}’s model implementations using VecMap\footnote{\url{https://github.com/artetxem/vecmap}} by \citet{artetxe2018generalizing}. However, our implementation differed from \citet{prazak-etal-2020-uwb}’s since the alignment chosen was supervised due to computational requirements and preliminary tests showing good performance. After seeing the results of VecMap’s supervised alignment method, another hyperparameter was introduced for models that are being aligned through Orthogonal Procrustes.
+The two alignment methods used are Orthogonal Procrustes and Incremental Training. Orthogonal Procrustes is implemented by using the first time period model as the base and the second time period model is “stretched” to fit the first. This is motivated by the fact that language builds on itself. In order to make comparisons of words changing over time, new usages of already existing words and new words (second time period model) should be made to fit into the contexts and usages that it succeeds (first time period model). The Gensim Word2Vec Procrustes Alignment tutorial by Ryan Heuser\footnote{\url{https://gist.github.com/quadrismegistus/09a93e219a6ffc4f216fb85235535faf}}  was initially used but was not compatible with FastText models. These aligned models were still saved and evaluated. All models were then aligned following the implementation of Team UWB @ SemEval’s \citep{prazak-etal-2020-uwb} model implementations using VecMap\footnote{\url{https://github.com/artetxem/vecmap}} by \citet{artetxe2018generalizing}. However, our implementation differed from \citet{prazak-etal-2020-uwb}’s since the alignment chosen was supervised due to computational requirements and preliminary tests showing good performance. After seeing the results of VecMap’s supervised alignment method, another hyperparameter was introduced for models that are being aligned through Orthogonal Procrustes.
 
 VecMap is a tool created for cross-lingual alignment. Since the two models for this task share the same language, it was possible to indicate how many words can be provided in the training dictionary where the word vectors can be aligned automatically. Given a word \emph{w} from the first time period model, its equivalent to the second time period model would also be \emph{w}. The additional hyperparameter was the amount of words given to VecMap as equivalents—making aligning the two models “easier” or “more supervised”.
 
@@ -128,7 +132,7 @@ Models that have Orthogonal Procrustes as the alignment method will also have th
     %\cmtSH{perhaps rephrase as "Vocabulary size for alignment", and also add a footnote that for some languages eg Latin ``ALL'' actually is already covered by the lower values. You might also want to reflect on the fact that by feeding ALL, you also feed the change words (in the test set, but also in the language as such) and ``push'' them to not be change words.}
 \end{itemize}%\vspace{+1ex}
 
-\cmtKV[inline]{what would this mean for the top-models of English and German since they both have 'ALL', at least for FastText the vocabulary is less "direct", and also change was still detected?}
+%\cmtKV[inline]{what would this mean for the top-models of English and German since they both have 'ALL', at least for FastText the vocabulary is less "direct", and also change was still detected?}
 
 The second alignment method,  Incremental Training, was implemented by taking the first time period model and continuing its training but this time using the second time period corpus. The models being compared will be the model trained on the first time period corpus and the model trained on both the first and second time period corpora.
 
@@ -150,14 +154,15 @@ Frequency thresholds can have a significant effect on computational time as well
 
 \subsection{Evaluation Through Spearman's Rank Order Correlation}
 
-For SemEval-2020 Subtask 2 where LSC is quantified as a measurement of change through cosine distances, Spearman’s Rank Order Correlation is calculated as the main statistical measure of overall score. Once the cosine distances are calculated for each target word, they are ranked and compared with the gold truth labels. Spearman's correlation $\rho$ is then calculated along with its p-value. Spearman’s $\rho$ can be any value from -1 to 1 where 1 is a perfect positive correlation between ranks, -1 is a perfect negative correlation between ranks, and 0 is no correlation between ranks. In this task, the best possible score for a model would be 1, meaning that it has ranked the cosine distances exactly like the truth labels. Calculating through ranking rather than direct comparisons (such as the difference between each target word’s cosine distance) was chosen since it allows vector spaces to vary more in size given the large amount of hyperparameter combinations being implemented.  To calculate the $\rho$ score, the statistical function module is used from the open-source library SciPy\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html}}. The Spearman's $\rho$ function was used where the `nan$\_$policy' is propagate. If any of the word vectors in the calculation is a NaN since it is not in the model's vocabulary, this policy returns a NaN as the $\rho$ score. This design decision was made so that every $\rho$ collected is ensured to have had a vector representation for each target word pair. Other policies included raising an error and continuing the calculation by omitting NaN values. The former results in no $\rho$ score and the latter score would leave room for the NaN values to contribute to the ranks. If there were 5 target words and 3 vectors were NaNs, there would be a higher chance of getting an unreliable high $\rho$ score since the rank positions of the vectors are affected due to the omission policy. The same evaluation will be done for each model but with the target words divided by POS-tag. Each model will have a Spearman’s $\rho$ for nouns, verbs, and adjectives. 
+Since the truth labels of SemEval-2020 Subtask 2 is done through ranking, Spearman's Rank Order Correlation is calculated as the main statistical measure of overall score. Once the cosine distances are calculated for each target word, they are ranked and compared with the gold truth labels. Spearman's correlation $\rho$ is then calculated along with its p-value. Spearman’s $\rho$ can be any value from -1 to 1 where 1 is a perfect positive correlation between ranks, -1 is a perfect negative correlation between ranks, and 0 is no correlation between ranks. In this task, the best possible score for a model would be 1, meaning that it has ranked the cosine distances exactly like the truth labels. Calculating through ranking rather than direct comparisons (such as the difference between each target word’s cosine distance) was chosen since it allows vector spaces to vary more in size given the large amount of hyperparameter combinations being implemented.  To calculate the $\rho$ score, the statistical function module is used from the open-source library SciPy\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html}}. The Spearman's $\rho$ function was used where the `nan$\_$policy' is propagate. When a word is missing from the model's vocabulary, the vector will be a NaN. NaN stands for `Not a Number' and is ``of a numerical data type that can be interpreted as a value that is undefined or unrepresentable"\footnote{\url{https://en.wikipedia.org/wiki/NaN}}. When the cosine distance is calculated between two vectors for each target word and at least one of vectors is a NaN, the cosine distance will also then be a NaN. If any of the cosine distances in the calculation is a NaN, this policy returns a NaN as the $\rho$ score. This design decision was made so that every $\rho$ collected is ensured to have had a vector representation for each target word pair. Other policies included raising an error and continuing the calculation by omitting NaN values. The former results in no $\rho$ score and the latter score would leave room for the NaN values to contribute to the ranks. If there were 5 target words and 3 vectors were NaNs, there would be a higher chance of getting an unreliable high $\rho$ score since the rank positions of the vectors are affected due to the omission policy. The same evaluation will be done for each model but with the target words divided by POS-tag. Each model will have a Spearman’s $\rho$ for nouns, verbs, and adjectives. 
 
 
 \subsection{Ethical Considerations and Efficiency Adjustments}
 \label{exp-ethics}
-Initially, 1600 models were planned to be trained for this large-scale hyperparameter search. However, with the deduction of 100-epoch models for FastText and the addition of the vocabulary alignment hyperparameter for the Orthogonal Procrustes alignment method, 4000 models were trained in total. Throughout the training process, it was important to vigilantly take into consideration computational times, storage, and energy usage. As stated above in Section~\ref{exp-epochs}, 100-epoch models were trained on Word2Vec first and examined to see if the increase in epochs and therefore computational time and energy used also reflected in the model’s performance. Since it did not show promising results or results that increased in conjunction with time and energy spent, training 100-epoch models for FastText was deemed not worth pursuing further. 
 
-The longer period of planning the pipeline was to ensure that once training begins, there are as little road blocks as possible. This would ensure that the training process and the storing of models were always organised and never lost or having to be retrained to avoid unnecessary consumption of resources. In hopes of remaining vigilant and conscious of the large amount of energy, resources, and storage being used for this thesis, adjustments to help with time and energy consumption were constantly being made to the pipeline. After the large-scale pipeline and the Orthogonal Procrustes alignment was incompatible with FastText models, the pipeline was restructured and already existing models were reformatted for efficiency purposes. Before the reformatting, 1TB of data and models were being stored. They were then transferred and reformatted as text files to take up significantly less space. To save computational time and energy, the cosine distances for the target words of each model were also stored as text files and will be made available to the public along with the model text files and pipeline. This was incredibly helpful since the initial plan was for the model to iterate through its entire vocabulary to search for the target words and calculate the overall Spearman’s $\rho$ and again for nouns, verbs, and adjectives. Another adjustment made during training was for the Incremental Alignment method. The model trained on the first time period corpus with the same hyperparameter combinations but for the Orthogonal Procrustes alignment method was used and trained again with the second time period corpus. This eliminated training what would have been 720 duplicate models.  
+Initially, 1600 models were planned to be trained for this large-scale hyperparameter search. However, with the deduction of 100-epoch models for FastText and the addition of the vocabulary alignment hyperparameter for the Orthogonal Procrustes alignment method, 4000 models were trained in total. Throughout the training process, it was important to vigilantly take into consideration computational times, storage, and energy usage. As stated above in Section~\ref{exp-epochs}, 100-epoch models were trained on Word2Vec first and examined to see if the increase in epochs and therefore computational time and energy used also reflected in the model’s performance. Since it did not show promising results or results that increased in conjunction with time and energy spent, training 100-epoch models for FastText was deemed not worth pursuing further.\footnote{Training was also done using a shared machine and it was imperative to consider the limited resources available for training.} 
+
+The longer period of planning the pipeline was to ensure that once training begins, there are as little road blocks as possible. This ensured that the training process and the storing of models were always organised and never lost or having to be retrained to avoid unnecessary consumption of resources. It also minimised manual intervention and thus errors throughout training and evaluation. In hopes of remaining vigilant and conscious of the large amount of energy, resources, and storage being used for this thesis, adjustments to help with time and energy consumption were constantly being made to the pipeline. After the large-scale pipeline and the Orthogonal Procrustes alignment was incompatible with FastText models, the pipeline was restructured and already existing models were reformatted for efficiency purposes. Before the reformatting, 1TB of data and models were being stored. They were then transferred and reformatted as text files to take up significantly less space. To save computational time and energy, the cosine distances for the target words of each model were also stored as text files and will be made available to the public along with the model text files and pipeline. This was incredibly helpful since the initial plan was for the model to iterate through its entire vocabulary to search for the target words and calculate the overall Spearman’s $\rho$ and again for nouns, verbs, and adjectives. Another adjustment made during training was for the Incremental Alignment method. The model trained on the first time period corpus with the same hyperparameter combinations but for the Orthogonal Procrustes alignment method was used and trained again with the second time period corpus. This eliminated training what would have been 720 duplicate models.  
 
 This large undertaking was done using an Intel Xeon CPU E5-2640 v4 (25M Cache, 2.40 GHz). With approximately 430 hours total of training and computational time, around 1.372 kg of CO\textsubscript{2} has been used which equates to around 17 bananas, or 7.4 kilometers driven, or 3.2 avocados from Mexico\footnote{\url{https://www.weforum.org/agenda/2020/02/avocado-environment-cost-food-mexico/}}. These calculations were made through the CO\textsubscript{2} GU mltgpu tutorial\footnote{\url{https://github.com/faustusdotbe/CO2_GU_mltgpu/blob/main/mltgpu_co2.ipynb}} by Simon Hengchen. These statistics are incredibly important to disclose considering the vast environmental impact conducting these experiments will have. 
 \citet{strubell-etal-2019-energy} state that the most computationally-hungry models typically obtain the highest scores. \citet{strubell-etal-2019-energy} also raise awareness on the CO\textsubscript{2} consumption within the NLP community and the importance of reporting train times and sensitivity to hyperparameters. By providing these statistics, the overall scores, and other files that require computational time and energy consumption, others are able to  further explore and examine this task without having to do all of the model training again. The reporting and analysing of hyperparameter sensitivities and patterns between the models will also allow researchers to apply the findings of this thesis when selecting hyperparameters in order to train models that are efficient, environmentally-conscious, and yield the best results.
