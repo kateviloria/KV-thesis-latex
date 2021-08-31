@@ -63,7 +63,12 @@ Keywords: & semantic change, language change, diachronic word embeddings
 \section*{Abstract}
 
 
-Lexical semantic change (LSC) detection through the use of diachronic corpora and computational methods continues to be a prevalent research area in language change. However, there has not been extensive work on further examining the models being trained and creating a foundation for what hyperparameter settings yield the best results.  In this thesis,  a large-scale hyperparameter search is conducted using the SemEval-2020 Task 1 dataset that includes English, German, Swedish, and Latin. Alongside model hyperparameters, different algorithms (Word2Vec and FastText) and alignment methods (Orthogonal Procrustes and Incremental Training) were also included. The hyperparameters that were evaluated are: number of training epochs, vector dimension, frequency threshold, and shared vocabulary size for the Orthogonal Procrustes alignment method. By amalgamating all of the results and assessing how model performances are affected if one hyperparameter is changed, considerations that must be made before training a model were substantiated. Conclusions made were that there is a large decrease in performance improvement rate after 50 epochs in training and that the typical choice of 300 dimensions for vectors (based on English best practices in NLP) does not necessarily apply to other languages. It is also shown that choices in vector dimension, frequency threshold, and shared vocabulary size depend on the language in question, the corpus' size and text genre composition. 
+Lexical semantic change (LSC) detection through the use of diachronic corpora and computational methods continues to be a prevalent research area in language change \citep{tahmasebi-survey2018}. However, there has not yet been (to the best of our knowledge) extensive work further examining the models being trained and creating a foundation for what hyperparameter settings yield the best results. In this thesis, a large-scale hyperparameter search is conducted using the SemEval-2020 Task 1 dataset that includes English, German, Swedish, and Latin. Alongside model hyperparameters, different algorithms (Word2Vec and FastText) and alignment methods (Orthogonal Procrustes and Incremental Training) were also included. The hyperparameters evaluated are: number of training epochs, vector dimension, frequency threshold, and shared vocabulary size for the Orthogonal Procrustes alignment method. By amalgamating all of the results and assessing how model performance is affected if one hyperparameter is changed, considerations that must be made before training a model were substantiated. This research concludes that improvements in performance significantly decreases after 50 epochs during training and that the typical choice of 300 dimensions for vectors (based on English best practices in NLP) does not necessarily apply to other languages. It is also shown that choices in vector dimension, frequency threshold, and shared vocabulary size depend on the language in question, the corpus' size, and text genre composition. 
+
+
+%\cmtSH{citep{tahmasebi-survey2018}} 
+%\cmtSH{to the best of our knowledge}
+%\cmtSH{performance improvement rate?}
 
 \thispagestyle{empty}
 
@@ -73,7 +78,16 @@ Lexical semantic change (LSC) detection through the use of diachronic corpora an
 \newpage
 \section*{Preface}
 
-Acknowledgements, etc.
+I, first and foremost, would like to thank my supervisor Simon Hengchen for his unwavering support and patience throughout this process. Thank you for answering the extensive amounts of questions and concerns I have week after week. Your knowledge, experience, and guidance have been integral to my work. I am so grateful for everything that I have learned about semantic change and the ins and outs of being a researcher, but most importantly, the importance of taking breaks. 
+
+Thank you to Merle Pfau, Konstantinos Mavromatakis, Dr. Barbara McGillivray, and Saga Hansson for taking the time to annotate the target word lists for German, Latin, and Swedish. A large portion of my analysis would not have been possible without your contributions. 
+
+I would also like to thank Robert Adesam for his assistance in my endeavour to train 4000 models on the MLTGPU, Adam Ek for his wisdom on FastText best practices, and Nikolai Ilinykh for his constant guidance throughout the second year of my masters’ programme. 
+
+To my fellow MLT students, thank you for making these past two years so wonderful. I am so excited to see how each and every one of you will make the world a better place. 
+
+And of course, thank you to my friends and family for lending me their ears. A part of my personality will now be lost as this thesis comes to an end.
+
 
 \thispagestyle{empty}
 
